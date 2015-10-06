@@ -11,7 +11,7 @@ fi
 for i in * ; do
     if [[ -x $i && $i != "install" ]]; then
         if [[ ! -e ~/bin/$i ]]; then
-            FULL_PATH=$(readlink -f $i)
+            FULL_PATH=$(pwd)/$i
             echo "ln -s $FULL_PATH ~/bin/$i"
             ln -s $FULL_PATH ~/bin/$i
         fi
