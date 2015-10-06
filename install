@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ ! -e ~/bin ]]; then
+    echo "mkdir -p ~/bin"
+    mkdir -p ~/bin
+fi
+
+# for all executables make symbolic links in ~/bin
+for i in * ; do
+    if [[ -x $i && $i != "install" ]]; then
+        if [[ ! -e ~/bin/$i ]]; then
+            FULL_PATH=$(readlink -f $i)
+            echo "ln -s $FULL_PATH ~/bin/$i"
+            ln -s $FULL_PATH ~/bin/$i
+        fi
+    fi
+done
