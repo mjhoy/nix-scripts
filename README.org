@@ -1,0 +1,11 @@
+* nix-scripts
+
+Random scripts to aid with nix.
+
+** install
+
+#+BEGIN_SRC sh
+  cd nix-scripts
+  ./install # symlinks executables to ~/bin
+  # make sure ~/bin is in your path
+#+END_SRC
